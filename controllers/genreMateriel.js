@@ -75,18 +75,18 @@ exports.createGenreMateriel = async (req, res) => {
 };
 exports.updateGenreMateriel = async (req, res) => {
   const { id, GenreMateriel } = req.body;
-  // if (id == null || GenreMateriel == null) {
-  //   return res.status(400).json({ error: "all field is required" });
-  // }
+  if (id == null || GenreMateriel == null) {
+    return res.status(400).json({ error: "all field is required" });
+  }
   try {
     const pool = await getConnection();
 
     let results = await pool
       .request()
-      .input("id", getSql().Int, id)
+      .input("id", getSql().Int, req.params.id)
       .input("GenreMateriel", getSql().VarChar, GenreMateriel)
 
-      .query(GenreMateriel.update);
+      .query(GenreMateriels.update);
 
     console.log(results);
 

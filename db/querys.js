@@ -140,7 +140,7 @@ where 1 = 1`,
   update: `
   UPDATE [dbo].[GenreMateriels]
    SET [GenreMateriel] = @GenreMateriel
- WHERE Where id = @id
+ WHERE id = @id
   `,
   delete: `delete from [dbo].[GenreMateriels] WHERE id = @id`,
   getCount: `select count(*) as count from [dbo].[GenreMateriels]`,
